@@ -1,4 +1,3 @@
----
 # yamllint disable rule:comments rule:line-length
 name: Assign Milestone
 permissions:
@@ -8,6 +7,8 @@ permissions:
 on:
   pull_request_target:
     types: [opened, reopened]
+  push:
+  workflow_dispatch:
 jobs:
   assign-milestone:
     runs-on: ubuntu-latest
