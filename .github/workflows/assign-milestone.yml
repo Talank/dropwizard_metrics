@@ -1,4 +1,3 @@
----
 # yamllint disable rule:comments rule:line-length
 name: Assign Milestone
 permissions:
@@ -6,8 +5,7 @@ permissions:
   pull-requests: write
 # yamllint disable-line rule:truthy
 on:
-  pull_request_target:
-    types: [opened, reopened]
+  workflow_dispatch:
 jobs:
   assign-milestone:
     runs-on: ubuntu-latest
@@ -27,3 +25,5 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           milestone: "${{ env.version }}"
+    strategy:
+      fail-fast: false
